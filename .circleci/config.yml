@@ -9,6 +9,7 @@ jobs:
           command: |
             apt update
             apt install -y latexmk make texlive texlive-latex-extra
+      - run: cp .latexmkrc ~/.latexmkrc
       - run:
           command: latexmk
           working_directory: paper
