@@ -8,7 +8,7 @@ jobs:
       - run:
           command: |
             apt update
-            apt install -y latexmk make texlive texlive-latex-extra
+            apt install -y latexmk make texlive-full
       - run: cp .latexmkrc ~/.latexmkrc
       - run:
           command: latexmk
