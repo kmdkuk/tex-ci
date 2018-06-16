@@ -5,10 +5,6 @@ jobs:
       - image: paperist/alpine-texlive-ja
     steps:
       - checkout
-      - run:
-          command: |
-            apt update
-            apt install -y latexmk make texlive-lang-japanese
       - run: cp .latexmkrc ~/.latexmkrc
       - run:
           command: latexmk
