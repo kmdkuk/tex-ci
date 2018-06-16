@@ -9,4 +9,6 @@ jobs:
       - run:
           command: latexmk
           working_directory: paper
+      - store_artifacts:
+          path: paper
 
