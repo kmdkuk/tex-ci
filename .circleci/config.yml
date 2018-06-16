@@ -5,6 +5,7 @@ jobs:
       - image: paperist/alpine-texlive-ja
     steps:
       - checkout
+      - run: apk add --no-cache ca-certificates 
       - run: cp .latexmkrc ~/.latexmkrc
       - run:
           command: latexmk
