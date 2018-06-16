@@ -10,5 +10,5 @@ jobs:
           command: latexmk
           working_directory: paper
       - store_artifacts:
-          path: paper
+          path: paper/*.pdf
 
