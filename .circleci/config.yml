@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: ubuntu:17.10
+      - image: paperist/alpine-texlive-ja
     steps:
       - checkout
       - run:
