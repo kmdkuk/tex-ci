@@ -1,7 +1,6 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/workspace
     docker:
       - image: paperist/alpine-texlive-ja
     steps:
@@ -21,7 +20,6 @@ jobs:
             - artifacts/
 
   upload:
-    working_directory: ~/workspace
     docker:
       - image: paperist/alpine-texlive-ja
     steps:
