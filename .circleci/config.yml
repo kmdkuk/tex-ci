@@ -1,6 +1,7 @@
 version: 2
 jobs:
   build:
+    working_directory: ~/workspace
     docker:
       - image: paperist/alpine-texlive-ja
     steps:
@@ -14,4 +15,26 @@ jobs:
       - run: cp paper/*.pdf artifacts/
       - store_artifacts:
           path: artifacts
+      - persist_to_workspace:
+          root: .
+          path:
+            - artifacts/
 
+  upload:
+    working_directory: ~/workspace
+    docker:
+      - image: paperist/alpine-texlive-ja
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - run: curl -F file=artifacts/*.pdf -F channels=#general -F token=${SLACK_BOT_API_TOKEN} https://slack.com/api/files.upload
+
+workflows:
+  version: 2
+  build_and_upload:
+    jobs:
+      - build
+      - upload:
+          requires:
+            - build
