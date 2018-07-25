@@ -15,9 +15,9 @@ jobs:
       - store_artifacts:
           path: /tmp/artifacts
       - persist_to_workspace:
-          root: /tmp/
+          root: /tmp/artifacts
           path:
-            - /tmp/artifacts/
+            - artifacts
 
   upload:
     docker:
