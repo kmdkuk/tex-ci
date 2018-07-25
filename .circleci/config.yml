@@ -12,12 +12,12 @@ jobs:
           working_directory: paper
       - run: mkdir -p /tmp/artifacts
       - run: cp paper/*.pdf /tmp/artifacts/
-      - store_artifacts:
-          path: /tmp/artifacts
       - persist_to_workspace:
           root: /tmp/artifacts
           path:
             - sample.pdf
+      - store_artifacts:
+          path: /tmp/artifacts
 
   upload:
     docker:
