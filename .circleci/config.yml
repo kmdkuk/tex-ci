@@ -12,7 +12,7 @@ jobs:
       - run: npm config set :texpath paper/sample.tex
       - run: npm run --silent textlint-check
       - save_cache:
-          key: dep-{{ checksum "package-lock.json "}}
+          key: dep-{{ checksum "package-lock.json"}}
           paths:
             - node_modules
   build:
