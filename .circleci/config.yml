@@ -3,16 +3,11 @@ jobs:
   textlint:
     working_directory: ~/project
     docker:
-      - image: circleci/node:8
+      - image: circleci/node:6
     steps:
       - checkout
-      - restore_cache:
-          key: dependency-{{ checksum "package-lock.json" }}
       - run: npm install
       - run: npm run --silent texlint-check --textpath paper/sample.tex
-      - save_cache:
-          key: dependency-{{ checksum "package-lock.json"}}
-          path: ~/project/node_modules
   build:
     working_directory: ~/project
     docker:
