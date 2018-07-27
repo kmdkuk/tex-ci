@@ -246,3 +246,6 @@ TSWLatexianTemp*
 
 # node modules
 node_modules/*
+
+# 謎ファイル
+__latexindent_temp.tex
