@@ -3166,7 +3166,7 @@ rules:
       - "python"
 
   - expected: LINE
-    pattern: /((?<!(ガイド|限界|オン|オフ))ライン|(?<!(\\h))line)/
+    pattern: /(ライン|line)/
     specs:
       - from: ライン
         to: LINE
@@ -3185,7 +3185,7 @@ rules:
     pattern: gmail
 
   - expected: Skype
-    pattern: /((?<!_)skype|スカイプ)/
+    pattern: /(skype|スカイプ)/
     specs:
       - from: skype
         to: Skype
