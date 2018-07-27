@@ -13,8 +13,8 @@ jobs:
       - run: npm run --silent textlint-check
       - save_cache:
           key: dep-{{ checksum "package-lock.json "}}
-          path:
-            - ~/project/node_modules
+          paths:
+            - node_modules
   build:
     working_directory: ~/project
     docker:
