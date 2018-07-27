@@ -3023,12 +3023,12 @@ rules:
   
   #ミライケータイ秘伝のタレ
   - expected: ，
-      pattern: /[,、]/
-      specs:
-        - from: ","
-          to: ，
-        - from: 、
-          to: ，
+    pattern: /[,、]/
+    specs:
+      - from: ","
+        to: ，
+      - from: 、
+        to: ，
 
   # 句読点
   - expected: "，"
