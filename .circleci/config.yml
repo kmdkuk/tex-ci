@@ -1,6 +1,20 @@
 version: 2
 jobs:
+  textlint:
+    working_directory: ~/project
+    docker:
+      - image: circleci/node:8
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-{{ checksum "package-lock.json" }}
+      - run: npm install
+      - save_cache:
+          key: dependency-{{ checksum "package-lock.json"}}
+          path: node_modules
+      - run: npm run --silent texlint-check --textpath paper/sample.tex
   build:
+    working_directory: ~/project
     docker:
       - image: paperist/alpine-texlive-ja
     steps:
@@ -10,28 +24,13 @@ jobs:
       - run:
           command: latexmk
           working_directory: paper
-      - run: mkdir artifacts
       - run: cp paper/*.pdf artifacts/
       - store_artifacts:
           path: artifacts
-  textlint:
-    working_directory: ~/project
-    docker:
-      - image: circleci/node:8
-    steps:
-      - checkout
-      - restore_cache:
-          key: dependency-{{ checksum "package.json" }}
-          path: node_modules
-      - run: npm install
-      - save_cache:
-          key: dependency-{{ checksum "package.json"}}
-          path: node_modules
-      - run: npm run --silent texlint-check --textpath paper/sample.tex
 
 workflows:
   version: 2
-  textlint-build:
+  textlint-makepdf:
     jobs:
       - textlint
       - build:
