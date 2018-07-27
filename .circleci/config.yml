@@ -9,7 +9,7 @@ jobs:
       - restore_cache:
           key: dep-{{ checksum "package-lock.json" }}
       - run: npm install
-      - run: npm config set texpath paper/sample.tex
+      - run: npm config set tex-textlint:texpath "paper/sample.tex"
       - run: npm run --silent textlint-check
       - save_cache:
           key: dep-{{ checksum "package-lock.json"}}
