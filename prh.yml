@@ -3250,7 +3250,6 @@ rules:
       - "Google スプレッドシート"
       - "Google SpreadSheet"
       - "GoogleSpreadSheet"
-      - /(?<!Google)スプレッドシート/
       - "スプシ"
 
   - expected: "Googleフォーム"
@@ -3469,24 +3468,6 @@ rules:
   - expected: "9"
     patterns:
       - "九"
-
-  - expected: "PukiWiki"
-    pattern: /(([Pp]uki\s+|(?<!Puki)|puki)[Ww]iki|Pukiwiki)/
-    specs:
-      - from: pukiwiki
-        to: PukiWiki
-      - from: pukiWiki
-        to: PukiWiki
-      - from: Pukiwiki
-        to: PukiWiki
-      - from: Puki Wiki
-        to: PukiWiki
-      - from: Puki wiki
-        to: PukiWiki
-      - from: puki wiki
-        to: PukiWiki
-      - from: puki Wiki
-        to: PukiWiki
 
   - expected: TravisCI
     pattern: /([Tt]ravis(\s+[Cc][Ii]|[Ci]i|c[Ii])|travis[Cc][Ii])/
