@@ -3156,7 +3156,7 @@ rules:
     pattern: iphone
 
   - expected: API
-    pattern: /(?<!M)api(?!n)/
+    pattern: api
     specs:
       - from: api
         to: API
