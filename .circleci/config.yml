@@ -14,4 +14,18 @@ jobs:
       - run: cp paper/*.pdf artifacts/
       - store_artifacts:
           path: artifacts
+    textlint:
+      working_directory: ~/project
+      docker:
+        - image: circleci/node:8
+      steps:
+        - checkout
+        - restore_cache:
+          key: dependency-{{ checksum "package.json" }}
+          path: node_modules
+        - run: npm install
+        - save_cache:
+          key: dependency-{{ checksum "package.json"}}
+          path: node_modules
+        - run: npm run --silent texlint-check --textpath paper/sample.tex
 
