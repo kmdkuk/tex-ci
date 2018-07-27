@@ -29,3 +29,11 @@ jobs:
           path: node_modules
         - run: npm run --silent texlint-check --textpath paper/sample.tex
 
+workflows:
+  version: 2
+  textlint-build:
+    jobs:
+      - textlint
+      - build:
+          requires:
+            - textlint
