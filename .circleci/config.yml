@@ -8,7 +8,7 @@ jobs:
       - checkout
       - run: npm install
       - run: npm config set :texpath paper/sample.tex
-      - run: npm run --silent textlint-check --textpath paper/sample.tex
+      - run: npm run --silent textlint-check
   build:
     working_directory: ~/project
     docker:
