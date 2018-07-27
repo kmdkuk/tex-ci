@@ -1073,7 +1073,7 @@ rules:
     expected: 始めた
   - pattern: はじま
     expected: 始ま
-  - pattern: はじめ
+  - pattern: /はじめ(?!に)/
     expected: 始め
   - pattern: かたまり
     expected: 塊
