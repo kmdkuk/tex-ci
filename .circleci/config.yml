@@ -1,6 +1,22 @@
 version: 2
 jobs:
+  textlint:
+    working_directory: ~/project
+    docker:
+      - image: circleci/node:6
+    steps:
+      - checkout
+      - restore_cache:
+          key: dep-{{ checksum "package-lock.json" }}
+      - run: npm install
+      - run: npm config set tex-textlint:texpath "paper/sample.tex"
+      - run: npm run --silent textlint-check
+      - save_cache:
+          key: dep-{{ checksum "package-lock.json"}}
+          paths:
+            - node_modules
   build:
+    working_directory: ~/project
     docker:
       - image: paperist/alpine-texlive-ja
     steps:
@@ -15,3 +31,11 @@ jobs:
       - store_artifacts:
           path: artifacts
 
+workflows:
+  version: 2
+  textlint-makepdf:
+    jobs:
+      - textlint
+      - build:
+          requires:
+            - textlint

@@ -3,3 +3,6 @@
 texをpushしたらCI回してPDFをビルドしてくれるようにしたサンプルリポジトリ  
 pdfはcircleCIのartifafcts保存されている(現状)  
 slackとかに追加できるようになると最高
+
+text-lintのあれこれはここから
+https://github.com/natmark/TeX-Textlint
