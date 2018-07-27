@@ -14,7 +14,7 @@ jobs:
             if [ ! -f ~/caches/images.tar ]; then
               docker pull paperist/alpine-texlive-ja
               mkdir -p ~/caches
-              docker save $(docker images | awk 'NR>=2 && ! /^<none>/{print $1}') -o ~/caches/images.tar
+              docker save paperist/alpine-texlive-ja:latest -o ~/caches/images.tar
             fi
       - save_cache:
           key: docker-alpine-texlive-ja
