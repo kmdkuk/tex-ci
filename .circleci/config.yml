@@ -6,9 +6,15 @@ jobs:
       - image: circleci/node:6
     steps:
       - checkout
+      - restore_cache:
+          key: dep-{{ checksum "package-lock.json" }}
       - run: npm install
       - run: npm config set :texpath paper/sample.tex
       - run: npm run --silent textlint-check
+      - save_cache:
+          key: dep-{{ checksum "package-lock.json "}}
+          path:
+            - ~/project/node_modules
   build:
     working_directory: ~/project
     docker:
