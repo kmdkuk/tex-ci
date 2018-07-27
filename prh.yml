@@ -3039,7 +3039,6 @@ rules:
   - expected: "．"
     patterns:
       - "。"
-      - "[^a-zA-Z0-9\\{(\\.*)]\\." # escape
 
   - expected: " "
     pattern: " "
