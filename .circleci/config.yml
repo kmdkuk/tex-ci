@@ -21,12 +21,12 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-        key: dependency-{{ checksum "package.json" }}
-        path: node_modules
+          key: dependency-{{ checksum "package.json" }}
+          path: node_modules
       - run: npm install
       - save_cache:
-        key: dependency-{{ checksum "package.json"}}
-        path: node_modules
+          key: dependency-{{ checksum "package.json"}}
+          path: node_modules
       - run: npm run --silent texlint-check --textpath paper/sample.tex
 
 workflows:
