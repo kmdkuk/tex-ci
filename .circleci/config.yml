@@ -1,17 +1,48 @@
 version: 2
 jobs:
-  build:
-    docker:
-      - image: paperist/alpine-texlive-ja
+  generate_cache:
+    machine: true
     steps:
       - checkout
-      - run: apk add --no-cache ca-certificates
-      - run: cp .latexmkrc ~/.latexmkrc
+      - restore_cache:
+          keys:
+            - docker-alpine-texlive-ja
+          paths: ~/caches/images.tar
       - run:
-          command: latexmk
-          working_directory: paper
-      - run: mkdir artifacts
-      - run: cp paper/*.pdf artifacts/
+          name: Check cache file, if not exists then pull images and generate cache.
+          command: |
+            if [ ! -f ~/caches/images.tar ]; then
+              docker pull paperist/alpine-texlive-ja
+              mkdir -p ~/caches
+              docker save $(docker images | awk 'NR>=2 && ! /^<none>/{print $1}') -o ~/caches/images.tar
+            fi
+      - save_cache:
+          key: docker-alpine-texlive-ja
+          paths: ~/caches/images.tar
+  build:
+    machine: true
+    environment:
+      TARGET: paper
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - docker-alpine-texlive-ja
+          paths: ~/caches/images.tar
+      - run:
+          name: Load Docker images
+          command: docker load -i ~/caches/images.tar
+      - run:
+          name: build
+          command: |
+            docker run --rm -v `pwd':/root/project -it paperist/alpine-texlive-ja
+              apk add --no-cache ca-certificates
+              cd /root/project
+              cp .latexmkrc ~/.latecmkrc
+              cd $TARGET && latexmk *.tex
+              cd ../
+              mkdir artifacts
+              cp ${TARGET}/*.pdf artifacts/
+              exit
       - store_artifacts:
           path: artifacts
-
