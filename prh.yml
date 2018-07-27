@@ -1,0 +1,27 @@
+# prh version
+version: 1
+rules:
+    # よくある表記揺れ
+    - expected: "アプリケーション"
+      patterns:
+          - "アプリ(?!ケーション)"
+
+    - expected: "iOS"
+      patterns:
+          - "IOS"
+          - "ios"
+
+    - expected: "リーダー"
+      patterns:
+          - "リーダ(?!ー)"
+
+    # 句読点
+    - expected: ","
+      patterns:
+          - "、"
+          - "，"
+
+    - expected: "\\." # escape
+      patterns: 
+          - "。"
+          - "．"
