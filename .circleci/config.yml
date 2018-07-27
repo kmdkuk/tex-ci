@@ -46,3 +46,12 @@ jobs:
               exit
       - store_artifacts:
           path: artifacts
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - generate_cache
+      - test:
+          requires:
+            - generate_cache
