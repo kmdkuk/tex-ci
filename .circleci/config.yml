@@ -35,15 +35,14 @@ jobs:
       - run:
           name: build
           command: |
-            docker run --rm -v `pwd':/root/project -it paperist/alpine-texlive-ja
-              apk add --no-cache ca-certificates
-              cd /root/project
-              cp .latexmkrc ~/.latecmkrc
-              cd $TARGET && latexmk *.tex
-              cd ../
-              mkdir artifacts
-              cp ${TARGET}/*.pdf artifacts/
-              exit
+            docker run --rm -v `pwd':/root/project paperist/alpine-texlive-ja /bin/bash -c '\
+              apk add --no-cache ca-certificates &&\
+              cd /root/project &&\
+              cp .latexmkrc ~/.latecmkrc &&\
+              cd $TARGET && latexmk *.tex &&\
+              cd ../ &&\
+              mkdir artifacts &&\
+              cp ${TARGET}/*.pdf artifacts/'
       - store_artifacts:
           path: artifacts
 
