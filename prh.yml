@@ -3020,3 +3020,506 @@ rules:
     pattern:  /([^も])のの/
   - expected: は
     pattern:  /はは/
+  
+  #ミライケータイ秘伝のタレ
+  - expected: ，
+      pattern: /[,、]/
+      specs:
+        - from: ","
+          to: ，
+        - from: 、
+          to: ，
+
+    # 句読点
+    - expected: "，"
+      patterns:
+        - "、"
+        - "[^a-zA-Z0-9],"
+
+    - expected: "．"
+      patterns:
+        - "。"
+        - "[^a-zA-Z0-9\\{(\\.*)]\\." # escape
+
+    - expected: " "
+      pattern: " "
+      specs:
+        - from: " "
+          to: " "
+
+    - expected: "1"
+      pattern: "１"
+      specs:
+        - from: "１"
+          to: "1"
+
+    - expected: "2"
+      pattern: "２"
+      specs:
+        - from: "２"
+          to: "2"
+
+    - expected: "3"
+      pattern: "３"
+      specs:
+        - from: "３"
+          to: "3"
+
+    - expected: "4"
+      pattern: "４"
+      specs:
+        - from: "４"
+          to: "4"
+
+    - expected: "5"
+      pattern: "５"
+      specs:
+        - from: "5"
+          to: "5"
+
+    - expected: "6"
+      pattern: "６"
+      specs:
+        - from: "６"
+          to: "6"
+
+    - expected: "7"
+      pattern: "７"
+      specs:
+        - from: "７"
+          to: "7"
+
+    - expected: "8"
+      pattern: "８"
+      specs:
+        - from: "８"
+          to: "8"
+
+    - expected: "9"
+      pattern: "９"
+      specs:
+        - from: "９"
+          to: "9"
+
+    - expected: "0"
+      pattern: "０"
+      specs:
+        - from: "０"
+          to: "0"
+
+    - expected: (
+      pattern: （
+      specs:
+        - from: （
+          to: (
+    - expected: )
+      pattern: ）
+      specs:
+        - from: ）
+          to: )
+
+    - expected: 行$1
+      pattern: /行な(う|っ)/
+      specs:
+        - from: 行なう
+          to: 行う
+        - from: 行なっ
+          to: 行っ
+
+    - expected: OB/OG
+      pattern: /OB[，・]?OG/
+      specs:
+        - from: OB，OG
+          to: OB/OG
+        - from: OB・OG
+          to: OB/OG
+        - from: OBOG
+          to: OB/OG
+
+    - expected: アジャイル
+      pattern: アジャイル型
+      specs:
+        - from: アジャイル型
+          to: アジャイル
+
+    - expected: アジャイル開発手法
+      pattern: アジャイル開発プロセス
+      specs:
+        - from: アジャイル開発プロセス
+          to: アジャイル開発手法
+
+    - expected: 頂いた
+      pattern: いただいた
+      specs:
+        - from: いただいた
+          to: 頂いた
+
+    - expected: iPhone
+      pattern: iphone
+
+    - expected: API
+      pattern: /(?<!M)api(?!n)/
+      specs:
+        - from: api
+          to: API
+
+    - expected: Python
+      patterns:
+        - "python"
+
+    - expected: LINE
+      pattern: /((?<!(ガイド|限界|オン|オフ))ライン|(?<!(\\h))line)/
+      specs:
+        - from: ライン
+          to: LINE
+        - from: line
+          to: LINE
+
+    - expected: Slack
+      pattern: /(slack|スラック)/
+      specs:
+        - from: slack
+          to: Slack
+        - from: スラック
+          to: Slack
+
+    - expected: Gmail
+      pattern: gmail
+
+    - expected: Skype
+      pattern: /((?<!_)skype|スカイプ)/
+      specs:
+        - from: skype
+          to: Skype
+        - from: スカイプ
+          to: Skype
+
+    - expected: ShareLatex
+      pattern: sharelatex
+
+    - expected: Android
+      pattern: /(android|アンドロイド)/
+      specs:
+        - from: android
+          to: Android
+        - from: アンドロイド
+          to: Android
+
+    - expected: "Android Studio"
+      patterns:
+        - "AndroidStudio"
+        - "android studio"
+        - "androidstudio"
+
+    - expected: "Xcode"
+      patterns:
+        - "xcode"
+
+    - expected: "Swift"
+      patterns:
+        - "swift"
+
+    - expected: "iOS"
+      patterns:
+        - "ios"
+        - "IOS"
+
+    - expected: "Java"
+      patterns:
+        - "java"
+
+    - expected: "Google"
+      patterns:
+        - "グーグル"
+        - "google"
+
+    - expected: "Googleドライブ"
+      patterns:
+        - "Google ドライブ"
+        - "GoogleDrive"
+        - "Google Drive"
+
+    - expected: "Googleドキュメント"
+      patterns:
+        - "Google ドキュメント"
+        - "Google Document"
+        - "GoogleDocument"
+        - "Google Docs"
+        - "GoogleDocs"
+
+    - expected: "Googleスプレッドシート"
+      patterns:
+        - "Google スプレッドシート"
+        - "Google SpreadSheet"
+        - "GoogleSpreadSheet"
+        - /(?<!Google)スプレッドシート/
+        - "スプシ"
+
+    - expected: "Googleフォーム"
+      patterns:
+        - "Google フォーム"
+        - "GoogleForm"
+        - "Google Form"
+        - "GoogleForms"
+        - "Google Forms"
+
+    - expected: "AdobeIllustrator"
+      patterns:
+        - "Ai(?!r)(?!R)"
+        - "イラレ"
+
+    - expected: "GitHub"
+      patterns:
+        - "github"
+        - "Github"
+
+    - expected: "GitKraken"
+      patterns:
+        - "gitkraken"
+        - "Gitkraken"
+
+    - expected: "Instagantt"
+      patterns:
+        - "instagantt"
+
+    - expected: "Asana"
+      patterns:
+        - "asana"
+
+    - expected: "Microsoft"
+      patterns:
+        - "microsoft"
+        - "マイクロソフト"
+
+    - expected: "Office365 Planner"
+      patterns:
+        - "microsoft planner"
+        - "MicrosoftPlanner"
+        - "microsoftplanner"
+        - "Microsoftplanner"
+        - "office365 Planner"
+        - "office365 planner"
+
+    - expected: "Trello"
+      patterns:
+        - "trello"
+
+    - expected: "Unity"
+      patterns:
+        - "unity"
+
+    - expected: "AI"
+      patterns:
+        - "人工知能"
+
+    - expected: "学んだ"
+      patterns:
+        - "学べた"
+
+    - expected: "スマートフォン"
+      patterns:
+        - /スマホ(?!deリレー)/
+
+    - expected: "アプリケーション"
+      patterns:
+        - "(?!バイル)(?!フォン)...アプリ(?!ケーション)(?!ストア)"
+
+    - expected: "プレゼンテーション"
+      patterns:
+        - /プレゼン(?!テーション)/
+
+    - expected: "果たす"
+      patterns:
+        - "果す"
+
+    - expected: "何名"
+      patterns:
+        - "何人"
+
+    - expected: "ウォーターフォール型"
+      patterns:
+        - "ウォーターフォール(!?型)"
+
+    - expected: "サイボウズLive"
+      patterns:
+        - "サイボウズlive"
+
+    - expected: "一人ひとり"
+      patterns:
+        - "1人ひとり"
+        - "1人1人"
+        - "一人一人"
+
+    - expected: "技術習得"
+      patterns:
+        - "技術取得"
+        - "技術修得"
+
+    - expected: ゼロスプリント
+      pattern: /0(th)?スプリント/
+      specs:
+        - from: 0スプリント
+          to: ゼロスプリント
+        - from: 0thスプリント
+          to: ゼロスプリント
+
+    - expected: ファーストスプリント
+      pattern: 1stスプリント
+
+    - expected: セカンドスプリント
+      pattern: 2ndスプリント
+
+    - expected: サードスプリント
+      pattern: 3rdスプリント
+
+    - expected: フォーススプリント
+      pattern: 4thスプリント
+
+    - expected: フィフススプリント
+      pattern: 5thスプリント
+
+    - expected: "JavaScript"
+      pattern:
+        - "javascript"
+        - "Javascript"
+
+    - expected: アイディア
+      pattern: アイデア
+
+    - expected: リーダー
+      pattern: /リーダ(?!ー)/
+
+    - expected: メンバー
+      pattern: /メンバ(?!ー)/
+
+    - expected: ユーザー
+      pattern: /(ユーザ(?!(ー|ビリティ))|利用者)/
+      specs:
+        - from: ユーザ
+          to: ユーザー
+        - from: 利用者
+          to: ユーザー
+
+    - expected: サーバ
+      pattern: サーバー
+
+    - expected: ポスター
+      pattern: /ポスタ(?!ー)/
+
+    - expected: HTML5
+      pattern: html5
+
+    - expected: "Node.js"
+      patterns:
+        - "nodejs"
+        - "Nodejs"
+        - "NodeJs"
+        - "node.js"
+
+    - expected: "スライド"
+      patterns:
+        - "スライド資料"
+
+    - expected: "パワーポイント"
+      pattern: /(パワポ|PPT)/
+      specs:
+        - from: パワポ
+          to: パワーポイント
+        - from: PPT
+          to: パワーポイント
+
+    - expected: "メーリングリスト"
+      patterns:
+        - "メーリス"
+
+    - expected: "0"
+      patterns:
+        - "ゼロ(?!スプリント)"
+
+    - expected: "1"
+      patterns:
+        - "(?!統)(?!宗)(?!谷)(?!唯).一(?!輝)(?!環)(?!度)(?!定)(?!番)(?!意)(?!応)(?!覧)(?!層)(?!人ひとり)(?!致)(?!部)(?!般)(?!貫)(?!丸)(?!切)(?!時)(?!見)(?!方)"
+
+    - expected: "2"
+      patterns:
+        - "二"
+
+    - expected: "3"
+      patterns:
+        - "(?!良).三"
+
+    - expected: "4"
+      patterns:
+        - "四"
+
+    - expected: "5"
+      patterns:
+        - "五"
+
+    - expected: "6"
+      patterns:
+        - "六"
+
+    - expected: "7"
+      patterns:
+        - "七"
+
+    - expected: "8"
+      patterns:
+        - "八"
+
+    - expected: "9"
+      patterns:
+        - "九"
+
+    - expected: "PukiWiki"
+      pattern: /(([Pp]uki\s+|(?<!Puki)|puki)[Ww]iki|Pukiwiki)/
+      specs:
+        - from: pukiwiki
+          to: PukiWiki
+        - from: pukiWiki
+          to: PukiWiki
+        - from: Pukiwiki
+          to: PukiWiki
+        - from: Puki Wiki
+          to: PukiWiki
+        - from: Puki wiki
+          to: PukiWiki
+        - from: puki wiki
+          to: PukiWiki
+        - from: puki Wiki
+          to: PukiWiki
+
+    - expected: TravisCI
+      pattern: /([Tt]ravis(\s+[Cc][Ii]|[Ci]i|c[Ii])|travis[Cc][Ii])/
+      specs:
+        - from: travisci
+          to: TravisCI
+        - from: traviscI
+          to: TravisCI
+        - from: travisCi
+          to: TravisCI
+        - from: travisCI
+          to: TravisCI
+        - from: Travisci
+          to: TravisCI
+        - from: TraviscI
+          to: TravisCI
+        - from: TravisCi
+          to: TravisCI
+        - from: Travis CI
+          to: TravisCI
+        - from: travis ci
+          to: TravisCI
+        - from: travis cI
+          to: TravisCI
+        - from: travis Ci
+          to: TravisCI
+        - from: travis CI
+          to: TravisCI
+        - from: Travis ci
+          to: TravisCI
+        - from: Travis cI
+          to: TravisCI
+        - from: Travis Ci
+          to: TravisCI
