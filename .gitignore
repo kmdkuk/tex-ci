@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 ### https://raw.github.com/github/gitignore/18e28746b0862059dbee8694fd366a679cb812fb/TeX.gitignore
 
-=======
->>>>>>> 9d12955114624882a7739275089878548fb5fb2f
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
@@ -15,17 +12,11 @@
 *.fot
 *.cb
 *.cb2
-<<<<<<< HEAD
 .*.lb
 
 ## Intermediate documents:
 *.dvi
 *.xdv
-=======
-
-## Intermediate documents:
-*.dvi
->>>>>>> 9d12955114624882a7739275089878548fb5fb2f
 *-converted-to.*
 # these rules might exclude image files for figures etc.
 # *.ps
@@ -33,11 +24,7 @@
 # *.pdf
 
 ## Generated if empty string is given at "Please type another file name for output:"
-<<<<<<< HEAD
 *.pdf
-=======
-.pdf
->>>>>>> 9d12955114624882a7739275089878548fb5fb2f
 
 ## Bibliography auxiliary files (bibtex/biblatex/biber):
 *.bbl
@@ -125,7 +112,6 @@ acs-*.bib
 *.gaux
 *.gtex
 
-<<<<<<< HEAD
 # htlatex
 *.4ct
 *.4tc
@@ -134,8 +120,6 @@ acs-*.bib
 *.trc
 *.xref
 
-=======
->>>>>>> 9d12955114624882a7739275089878548fb5fb2f
 # hyperref
 *.brf
 
@@ -171,13 +155,9 @@ _minted*
 *.mw
 
 # nomencl
-<<<<<<< HEAD
 *.nlg
 *.nlo
 *.nls
-=======
-*.nlo
->>>>>>> 9d12955114624882a7739275089878548fb5fb2f
 
 # pax
 *.pax
@@ -220,12 +200,9 @@ pythontex-files-*/
 # easy-todo
 *.lod
 
-<<<<<<< HEAD
 # xmpincl
 *.xmpi
 
-=======
->>>>>>> 9d12955114624882a7739275089878548fb5fb2f
 # xindy
 *.xdy
 
@@ -254,17 +231,12 @@ TSWLatexianTemp*
 *~[0-9]*
 
 # auto folder when using emacs and auctex
-<<<<<<< HEAD
 ./auto/*
 *.el
-=======
-/auto/*
->>>>>>> 9d12955114624882a7739275089878548fb5fb2f
 
 # expex forward references with \gathertags
 *-tags.tex
 
-<<<<<<< HEAD
 # standalone packages
 *.sta
 
@@ -272,7 +244,5 @@ TSWLatexianTemp*
 *.spl
 
 
-=======
 # node modules
 /node_modules
->>>>>>> 9d12955114624882a7739275089878548fb5fb2f
