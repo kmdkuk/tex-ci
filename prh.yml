@@ -3495,3 +3495,7 @@ rules:
         to: TravisCI
       - from: Travis Ci
         to: TravisCI
+
+  # ここから自分の表記ゆれ
+  - expected: "シミュレーション"
+    pattern: "シュミレーション"
